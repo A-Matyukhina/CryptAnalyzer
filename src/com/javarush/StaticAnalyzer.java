@@ -1,8 +1,11 @@
 package com.javarush;
 
+import java.io.BufferedReader;
+
 public class StaticAnalyzer {
-    public void analyze(){
-        System.out.println("This section is under development.");
-        System.out.println("__________________________________________________________________________");
+    public StaticAnalyzer(BufferedReader br) {
+    }
+
+    public void staticAnalyzer() {
     }
 }

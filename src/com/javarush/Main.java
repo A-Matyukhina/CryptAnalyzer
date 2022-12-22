@@ -12,7 +12,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             print("What would you like to do? Run one of the options and enter the number: " +
-                    "\n \t" + ANSI_BLUE + "1" + ANSI_RESET + " for" + ANSI_BLUE + " encrypt" + ANSI_RESET +  " with " +
+                    "\n \t" + ANSI_BLUE + "1" + ANSI_RESET + " for" + ANSI_BLUE + " encrypt" + ANSI_RESET + " with " +
                     "" + ANSI_BLUE + "key" + ANSI_RESET + ";" +
                     "\n \t" + ANSI_BLUE + "2" + ANSI_RESET + " for" + ANSI_BLUE + " decrypt" + ANSI_RESET + " with " + ANSI_BLUE + "key" + ANSI_RESET + ";" +
                     "\n \t" + ANSI_BLUE + "3" + ANSI_RESET + " for" + ANSI_BLUE + " decrypt" + ANSI_RESET + " by " + ANSI_BLUE + " Brute Force " + ANSI_RESET +
@@ -21,10 +21,10 @@ public class Main {
                     "\n \t" + ANSI_BLUE + "5" + ANSI_RESET + " for " + ANSI_BLUE + "exit" + ANSI_RESET + ".");
             String choice = br.readLine();
             switch (choice) {
-                case "1" -> new Encrypt().encrypt();
-                case "2" -> new Decrypt().decrypt();
-                case "3" -> new BruteForce().bruteForceDecrypt();
-                case "4" -> new StaticAnalyzer().analyze();
+                case "1" -> new Encrypt(br).encrypt();
+                case "2" -> new Decrypt(br).decrypt();
+                case "3" -> new BruteForce(br).bruteForceDecrypt();
+                case "4" -> new StaticAnalyzer(br).staticAnalyzer();
                 case "5" -> {
                     return;
                 }

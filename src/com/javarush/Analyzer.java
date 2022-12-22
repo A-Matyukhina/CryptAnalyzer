@@ -24,14 +24,14 @@ public class Analyzer {
                 result.append(inChar);
             }
             char inChar2 = Character.toLowerCase(inChar);
-            int startPosition = ALPHABET.indexOf(inChar2);
+            int startPosition = Analyzer.ALPHABET.indexOf(inChar2);
             int finishPosition;
             char newChar = 0;
             if (startPosition >= 0) {
                 if (key >= 0) {
-                    finishPosition = (startPosition + key) % ALPHABET.length();
+                    finishPosition = (startPosition + key) % Analyzer.ALPHABET.length();
                 } else {
-                    finishPosition = ((startPosition + ALPHABET.length() + key) % ALPHABET.length());
+                    finishPosition = ((startPosition + Analyzer.ALPHABET.length() + key) % Analyzer.ALPHABET.length());
                 }
                 newChar = ALPHABET.charAt(finishPosition);
                 if (Character.isUpperCase(inChar)) {
@@ -42,6 +42,7 @@ public class Analyzer {
         }
         return result.substring(0, result.length() - 1);
     }
+
     public String decrypt(String text, int key) {
         return encrypt(text, key * (-1));
     }
