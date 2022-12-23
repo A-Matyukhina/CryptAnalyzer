@@ -21,8 +21,8 @@ public class Main {
                     "\n \t" + ANSI_BLUE + "5" + ANSI_RESET + " for " + ANSI_BLUE + "exit" + ANSI_RESET + ".");
             String choice = br.readLine();
             switch (choice) {
-                case "1" -> new Encrypt(br).encrypt();
-                case "2" -> new Decrypt(br).decrypt();
+                case "1" -> new Encryption(br).encrypt();
+                case "2" -> new Decryption(br).decrypt();
                 case "3" -> new BruteForce(br).bruteForceDecrypt();
                 case "4" -> new StaticAnalyzer(br).staticAnalyzer();
                 case "5" -> {

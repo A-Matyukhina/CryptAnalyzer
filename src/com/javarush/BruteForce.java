@@ -16,15 +16,15 @@ public class BruteForce {
         this.br = bf;
     }
 
-    Analyzer analyzer = new Analyzer();
+    Encryption encryption = new Encryption();
 
     public void bruteForceDecrypt() throws IOException {
         try {
             System.out.println("Enter the path to the file for decrypt it: ");
-            String pathForDecrypt = br.readLine();
+            String pathForDecode = br.readLine();
             System.out.println("Enter the path to the file to write the brute force decoded text: ");
             String pathAfterDecode = br.readLine();
-            BufferedReader in = Files.newBufferedReader(Path.of(pathForDecrypt));
+            BufferedReader in = Files.newBufferedReader(Path.of(pathForDecode));
             BufferedWriter out = Files.newBufferedWriter(Path.of(pathAfterDecode));
             StringBuilder allText = new StringBuilder();
             while (in.ready()) {
@@ -35,9 +35,9 @@ public class BruteForce {
             out.write(decryptText);
             in.close();
             out.close();
-            System.out.println("A file was decrypted. Key for decryption is - " + analyzer.getKey());
+            System.out.println("A file was decrypted. Key for decryption is - " + encryption.getKey());
         } catch (
-                RuntimeException e) {
+                IllegalArgumentException e) {
             System.out.println("Be careful, type the data according with condition");
         } catch (
                 FileNotFoundException e) {
@@ -53,21 +53,24 @@ public class BruteForce {
         int possibleKey = 0;
         String result = "";
         while (true) {
-            String decrypt = analyzer.decrypt(text, analyzer.setKey(possibleKey));
-            if (!decrypt.endsWith(".")) {
+            String decrypt = Decryption.toDecrypt(text, encryption.setKey(possibleKey));
+            int comma = decrypt.indexOf(',');
+            if (!decrypt.endsWith(".") && !decrypt.endsWith("!") && !decrypt.endsWith("?")) {
                 possibleKey++;
                 continue;
             }
             if (!decrypt.contains(" ") && !decrypt.contains(".")) {
                 possibleKey++;
-
-
-            } else {
+                continue;
+            }
+            if ((decrypt.charAt(comma + 1) != ' ') && (decrypt.charAt(comma + 1) != '\n')){
+                possibleKey++;
+            }
+            else {
                 result = decrypt;
                 break;
             }
         }
-
         return result;
     }
 }
