@@ -24,14 +24,14 @@ public class Analyzer {
                 result.append(inChar);
             }
             char inChar2 = Character.toLowerCase(inChar);
-            int startPosition = Analyzer.ALPHABET.indexOf(inChar2);
+            int startPosition = ALPHABET.indexOf(inChar2);
             int finishPosition;
             char newChar = 0;
             if (startPosition >= 0) {
                 if (key >= 0) {
-                    finishPosition = (startPosition + key) % Analyzer.ALPHABET.length();
+                    finishPosition = (startPosition + key) % ALPHABET.length();
                 } else {
-                    finishPosition = ((startPosition + Analyzer.ALPHABET.length() + key) % Analyzer.ALPHABET.length());
+                    finishPosition = ((startPosition + ALPHABET.length() + key) % ALPHABET.length());
                 }
                 newChar = ALPHABET.charAt(finishPosition);
                 if (Character.isUpperCase(inChar)) {
