@@ -9,8 +9,10 @@ public class Main {
     public static final String ANSI_BLUE = "\u001B[34m";
 
     public static void main(String[] args) throws IOException {
+	//Would be better to export all the code in some class and in psvm only run it
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
+	//this sentences can be moved to variables
             print("What would you like to do? Run one of the options and enter the number: " +
                     "\n \t" + ANSI_BLUE + "1" + ANSI_RESET + " for" + ANSI_BLUE + " encrypt" + ANSI_RESET + " with " +
                     "" + ANSI_BLUE + "key" + ANSI_RESET + ";" +
@@ -21,6 +23,7 @@ public class Main {
                     "\n \t" + ANSI_BLUE + "5" + ANSI_RESET + " for " + ANSI_BLUE + "exit" + ANSI_RESET + ".");
             String choice = br.readLine();
             switch (choice) {
+		//we dont need objects to execute only one method, static methods would be better
                 case "1" -> new Encryption(br).encrypt();
                 case "2" -> new Decryption(br).decrypt();
                 case "3" -> new BruteForce(br).bruteForceDecrypt();

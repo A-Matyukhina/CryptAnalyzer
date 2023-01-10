@@ -32,6 +32,7 @@ public class Decryption {
                 String line = in.readLine();
                 allText.append(line).append(System.lineSeparator());
             }
+	    //better to inline
             String decryptText = toDecrypt(allText.toString(), encryption.getKey());
             out.write(decryptText);
             in.close();

@@ -9,7 +9,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 public class Encryption {
-
+    //would be nice to have class Util with all the needed static final vars
     private static final String ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя.,\":-!? ";
     private int key;
     private BufferedReader br;
