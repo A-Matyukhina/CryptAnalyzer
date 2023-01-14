@@ -15,9 +15,9 @@ public class BruteForce {
     public BruteForce(BufferedReader bf) {
         this.br = bf;
     }
-
+    //better to assign field in constructor
     Encryption encryption = new Encryption();
-
+    //method needs to be static
     public void bruteForceDecrypt() throws IOException {
         try {
             System.out.println("Enter the path to the file for decrypt it: ");
@@ -31,6 +31,7 @@ public class BruteForce {
                 String line = in.readLine();
                 allText.append(line).append(System.lineSeparator());
             }
+	    //decryptText can be inlined
             String decryptText = bruteForceAlgorithm(allText.toString());
             out.write(decryptText);
             in.close();
